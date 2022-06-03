@@ -1,0 +1,19 @@
+@import "./mixin"
+
+.ista-container
+  width: 100%
+  max-width: 100%
+  padding-left: 20px
+  padding-right: 20px
+  margin-left: auto
+  margin-right: auto
+
+  @include media-md
+    max-width: $breakpoints-md
+    padding-left: $mg-md-gutter
+    padding-right: $mg-md-gutter
+
+  @include media-lg
+    max-width: $screen-lg
+    padding-left: $mg-lg-gutter
+    padding-right: $mg-lg-gutter

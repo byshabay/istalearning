@@ -1,0 +1,108 @@
+$mg-lg-gutter: 20px;
+$mg-md-gutter: 20px;
+$screen-md: 768px;
+$screen-lg: 1024px + $mg-lg-gutter * 2;
+$screen-xl: 1700px;
+$breakpoints-md: $screen-md;
+$breakpoints-lg: $screen-lg;
+$breakpoints-xl: $screen-xl;
+
+$breakpoints: (
+  md: $screen-md,
+  lg: $screen-lg,
+  xl: $screen-xl
+);
+
+@mixin placeholder($pn-color) {
+  ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: $pn-color;
+  }
+
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: $pn-color;
+  }
+
+  :-ms-input-placeholder {
+    /* IE 10+ */
+    color: $pn-color;
+  }
+
+  :-moz-placeholder {
+    /* Firefox 18- */
+    color: $pn-color;
+  }
+
+  &::placeholder {
+    color: $pn-color;
+  }
+}
+
+@mixin retina {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+@mixin media-xl {
+  @media screen and (min-width: $breakpoints-xl) {
+    @content;
+  }
+}
+
+@mixin media-lg {
+  @media screen and (min-width: $breakpoints-lg) {
+    @content;
+  }
+}
+@mixin media-md {
+  @media screen and (min-width: $breakpoints-md) {
+    @content;
+  }
+}
+@mixin media-max-xl {
+  @media screen and (max-width: $breakpoints-xl - 1) {
+    @content;
+  }
+}
+@mixin media-max-lg {
+  @media screen and (max-width: $breakpoints-lg - 1) {
+    @content;
+  }
+}
+@mixin media-max-md {
+  @media screen and (max-width: $breakpoints-md - 1) {
+    @content;
+  }
+}
+@mixin media-max-sm {
+  @media screen and (max-width: 374px) {
+    @content;
+  }
+}
+
+@mixin media-sm {
+    @media screen and (min-width: 375px) {
+        @content;
+    }
+}
+
+@mixin partner-logo($name: 'citymobile', $path: '../img/') {
+  &__#{$name} {
+    @content;
+
+    &::before {
+      @include retina {
+        background-image: url('#{$path + $name}@2x.png');
+      }
+
+      background-image: url('#{$path + $name}.png');
+    }
+  }
+}
