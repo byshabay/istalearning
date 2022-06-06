@@ -2,25 +2,25 @@
   <div>
     <FilterEvents class="ista-container" />
     <div class="ista-container test">
-  <EventCard />
-  <EventCard />
-  <EventCard />
-  <EventCard />
-  <EventCard />
-  <EventCard />
-  <EventCard />
-  <EventCard />
-</div>
+      <EventCard />
+      <EventCard />
+      <EventCard />
+      <EventCard />
+      <EventCard />
+      <EventCard />
+      <EventCard />
+      <EventCard />
+    </div>
   </div>
 </template>
 
 <script>
-import EventCard from "~/components/events/EventCard/EventCard.vue";
-import FilterEvents from "~/components/events/FilterEvents/FilterEvents.vue";
+import EventCard from "~/Components/events/EventCard/EventCard.vue";
+import FilterEvents from "~/Components/events/FilterEvents/FilterEvents.vue";
 export default {
   name: "excursions",
-  components: {FilterEvents, EventCard}
-}
+  components: { FilterEvents, EventCard },
+};
 </script>
 
 <style lang="sass" scoped>
