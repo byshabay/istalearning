@@ -2,7 +2,7 @@
   <md-card md-with-hover>
     <md-card-media-cover md-solid>
       <md-card-media md-ratio="1:1">
-        <img :src="content.photo" alt="baikal" />
+         <img :src="content.photo" alt="baikal" />
       </md-card-media>
 
       <md-card-area>

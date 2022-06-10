@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import EventPage from "~/components/pages/EventPage/EventPage.vue";
+import EventPage from "~/Components/pages/EventPage/EventPage.vue";
 
 export default {
   name: "index.vue",

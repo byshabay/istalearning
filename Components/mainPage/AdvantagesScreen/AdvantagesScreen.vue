@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import AdvantageItem from "~/components/mainPage/AdvantagesScreen/AdvantageItem.vue";
+import AdvantageItem from "~/Components/mainPage/AdvantagesScreen/AdvantageItem.vue";
 
 export default {
   name: "AdvantagesScreen",

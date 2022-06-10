@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import SubscribeFormMain from "~/components/SubscribeFormMain/SubscribeFormMain.vue";
+import SubscribeFormMain from "~/Components/SubscribeFormMain/SubscribeFormMain.vue";
 export default {
   name: "ConsultationScreen",
   components: {SubscribeFormMain},

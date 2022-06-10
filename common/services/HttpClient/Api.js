@@ -1,11 +1,18 @@
 class Api {
 
   constructor(httpClient) {
-      this.httpClient = httpClient
+    this.httpClient = httpClient
   }
 
+
   getEvents(params = '') {
-      return this.httpClient.get(`event/${params}`)
+    var lang = sessionStorage.getItem('lang')
+    if (lang == undefined || lang == null) {
+      var lang = 'ru'
+    }
+
+
+    return this.httpClient.get(`${lang}/api/event/${params}`)
   }
 
   sendSubscribe(body) {
