@@ -9,40 +9,50 @@
         <md-card-content>
           <div class="md-layout md-gutter">
             <div class="md-layout-item md-small-size-100">
-              <md-field :class="getValidationClass('firstName')">
-                <label for="first-name">Имя</label>
-                <md-input name="first-name" id="first-name" autocomplete="given-name" v-model="form.firstName" :disabled="sending" />
-                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>
-                <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>
+              <md-field :class="getValidationClass('name')">
+                <label for="name">Имя</label>
+                <md-input name="name" id="name" autocomplete="given-name" v-model="form.name"
+                  :disabled="sending" />
+                <span class="md-error" v-if="!$v.form.name.required">Обязательное поле</span>
+                <span class="md-error" v-else-if="!$v.form.name.minlength">Слишком короткое имя</span>
               </md-field>
             </div>
 
             <div class="md-layout-item md-small-size-100">
-              <md-field :class="getValidationClass('lastName')">
-                <label for="last-name">Телефон</label>
-                <md-input name="last-name" id="last-name" autocomplete="family-name" v-model="form.lastName" :disabled="sending" />
-                <span class="md-error" v-if="!$v.form.lastName.required">The last name is required</span>
-                <span class="md-error" v-else-if="!$v.form.lastName.minlength">Invalid last name</span>
+              <md-field :class="getValidationClass('phone')">
+                <label for="phone">Телефон</label>
+                <md-input name="phone" id="phone" autocomplete="tel" v-model="form.phone"
+                  :disabled="sending" />
+                <span class="md-error" v-if="!$v.form.phone.required">Обязательное поле</span>
+                <span class="md-error" v-else-if="!$v.form.phone.minlength">Неккоректные данные</span>
               </md-field>
             </div>
           </div>
 
           <md-field :class="getValidationClass('email')">
             <label for="email">Email</label>
-            <md-input type="email" name="email" id="email" autocomplete="email" v-model="form.email" :disabled="sending" />
-            <span class="md-error" v-if="!$v.form.email.required">The email is required</span>
-            <span class="md-error" v-else-if="!$v.form.email.email">Invalid email</span>
+            <md-input type="email" name="email" id="email" autocomplete="email" v-model="form.email"
+              :disabled="sending" />
+            <span class="md-error" v-if="!$v.form.email.required">Обязательное поле</span>
+            <span class="md-error" v-else-if="!$v.form.email.email">Неккоректные данные</span>
+          </md-field>
+
+
+          <md-field>
+            <md-input v-for="(eventContent, index) in event" :key="index" type="text" name="event" id="event"
+              v-model="form.event" v-bind:value="eventContent.id" :disabled="sending" />
           </md-field>
         </md-card-content>
 
         <md-progress-bar md-mode="indeterminate" v-if="sending" />
 
         <md-card-actions>
-          <md-button type="submit" class="md-primary" :disabled="sending">Create user</md-button>
+          <md-button type="submit" class="md-primary" :disabled="sending">Записаться</md-button>
         </md-card-actions>
       </md-card>
 
-      <md-snackbar :md-active.sync="userSaved">The user {{ lastUser }} was saved with success!</md-snackbar>
+      <!-- <md-snackbar :md-active.sync="userSaved">Ваша заявка успешно принята! Наш менеджер свяжется с вами по указанному
+        адресу: {{ email }}</md-snackbar> -->
     </form>
   </div>
 </template>
@@ -54,7 +64,8 @@ import {
   email,
   numeric,
   minLength,
-  maxLength
+  maxLength,
+  helpers
 } from 'vuelidate/lib/validators'
 
 export default {
@@ -62,10 +73,9 @@ export default {
   mixins: [validationMixin],
   data: () => ({
     form: {
-      firstName: null,
-      lastName: null,
-      gender: null,
-      age: null,
+      name: null,
+      phone: null,
+      event: null,
       email: null,
     },
     userSaved: false,
@@ -74,11 +84,11 @@ export default {
   }),
   validations: {
     form: {
-      firstName: {
+      name: {
         required,
         minLength: minLength(3)
       },
-      lastName: {
+      phone: {
         required,
         numeric,
         minLength: minLength(9),
@@ -87,8 +97,16 @@ export default {
       email: {
         required,
         email
+      }, 
+      event: {
+        required,
+        numeric
       }
     }
+  },
+  async mounted() {
+    this.event = await this.$api.getEvents(`?is_promo=true`)
+    
   },
   methods: {
     getValidationClass (fieldName) {
@@ -102,17 +120,18 @@ export default {
     },
     clearForm () {
       this.$v.$reset()
-      this.form.firstName = null
-      this.form.lastName = null
-      this.form.age = null
-      this.form.gender = null
+      this.form.name = null
+      this.form.phone = null
+      this.form.event = null
       this.form.email = null
     },
+    
     saveUser () {
       this.sending = true
 
       this.$api.sendSubscribe(this.form).finally(() => {
-        this.lastUser = `${this.form.firstName}`
+
+        this.lastUser = `${this.form.name}`
         this.userSaved = true
         this.sending = false
         // this.clearForm()

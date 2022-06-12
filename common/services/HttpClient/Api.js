@@ -16,7 +16,11 @@ class Api {
   }
 
   sendSubscribe(body) {
-    return this.httpClient.post('event_order/', body)
+    var lang = sessionStorage.getItem('lang')
+    if (lang == undefined || lang == null) {
+      var lang = 'ru'
+    }
+    return this.httpClient.post(`${lang}/api/event_order/`, body)
   }
 }
 
