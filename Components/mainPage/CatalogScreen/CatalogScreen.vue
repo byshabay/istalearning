@@ -2,16 +2,16 @@
   <div class="block catalog-screen">
     <h2 class="catalog-screen__title common-h2">Каталог</h2>
     <div class="ista-container catalog-screen__wrap">
-      <a href="#" class="catalog-screen__item center">
-        <img src="./images/Rectangle47.png" alt="#eror" class="catalog-screen__img" />
+      <a href="/excursions" class="catalog-screen__item center">
+        <img src="./images/Rectangle47.png" alt="#eror" class="catalog-screen__img catalog-screen__img-1" />
         <p class="catalog-screen__font">Экскурсии-онлайн</p>
       </a>
       <a href="#" class="catalog-screen__item center">
-        <img src="./images/birds.png" alt="#eror" class="catalog-screen__img" />
+        <img src="./images/birds.png" alt="#eror" class="catalog-screen__img catalog-screen__img-2" />
         <p class="catalog-screen__font">Родительский клуб</p>
       </a>
       <a href="#" class="catalog-screen__item center">
-        <img src="./images/Flags.png" alt="#eror" class="catalog-screen__img" />
+        <img src="./images/Flags.png" alt="#eror" class="catalog-screen__img catalog-screen__img-3" />
         <p class="catalog-screen__font">Языковые клубы</p>
       </a>
     </div>
@@ -39,25 +39,45 @@ export default {
   &__item
     display: flex
     flex-direction: column
-    padding: 35px 45px 21px 45px
+    justify-content: space-around
+    align-items: center
+    padding: 35px 0
+
+    max-height: 326px
+
     background-color: #cbe2ef
-    //max-width: 350px
-    //width: 75%
-    //height: 250px
 
     &:hover .catalog-screen__img, .catalog-screen__font
       transform: scale(1.1)
 
   &__img
-    //max-height: 200px
+    max-height: 240px
+    min-height: 240px
+    max-width: 348px
+    width: 100%
+    height: 100%
+    object-fit: contain
+    
+
     transition: 1s
+
+  &__img-1 
+    // max-height: 198px
+    max-width: 201px
+
+  // &__img-2
+  //   max-height: 230px
+
+  &__img-2
+    max-width: 257px
 
   &__font
-    margin-top: auto
-    transition: 1s
+    font-family: 'Montserrat'
+    font-size: $text-32
+    text-align: center
+    line-height: 150%
 
-//.catalog-element:hover .catalog-img
-//  transform: scale(1.1)
-//.catalog-element:hover .catalog-font
-//  transform: scale(1.1)
+    transition: 1s
+    color: $dark-blue
+
 </style>
