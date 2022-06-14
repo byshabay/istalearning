@@ -3,8 +3,9 @@
     <FirstScreen />
     <CatalogScreen />
     <AdvantagesScreen />
-    <ConsultationScreen />
     <EventsScreen />
+    <ConsultationScreen />
+
   </div>
 </template>
 
