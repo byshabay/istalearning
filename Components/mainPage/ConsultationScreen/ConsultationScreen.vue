@@ -1,12 +1,13 @@
 <template>
   <div class="consultation-screen">
     <div class="ista-container consultation-screen__wrap">
-      <h2>Записаться на консультацию</h2>
-      <p class="consult-p">
+      <h2 class="consultation-screen__h2 common-h2">Записаться на консультацию</h2>
+      <p class="consult-p consultation-screen__p">
         Пройдите анкетирование и запишитесь на 15-минутную консультацию с
         преподавателем
       </p>
-      <md-button @click="showSubscribeDialog = true" style="width: 120px;" class="md-raised">Записаться</md-button>
+      <md-button @click="showSubscribeDialog = true" class="consultation-screen__btn btn-grad">Записаться
+      </md-button>
     </div>
 
     <md-dialog :md-active.sync="showSubscribeDialog">
@@ -29,14 +30,33 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+  @import "~assets/sass/ui-kit/mixin"
 .consultation-screen
-  padding-top: 74px
-  padding-bottom: 74px
-  background: #003C84
+  padding: 35px 0
+
+  font-family: 'Montserrat'
+
+  background: $main-blue
   color: #fff
 
   &__wrap
     display: flex
     justify-content: space-between
     align-items: center
+
+  &__h2 
+    width: 30%
+
+    color: #fff
+
+  &__p 
+    max-width: 408px
+    width: 40%
+
+    font-size: $text-18
+  
+  &__btn.btn-grad 
+    color: $dark-blue
+    background: #fff
+
 </style>
