@@ -1,6 +1,6 @@
 <template>
   <div class="block catalog-screen">
-    <h2 class="catalog-screen__title">Каталог</h2>
+    <h2 class="catalog-screen__title common-h2">Каталог</h2>
     <div class="ista-container catalog-screen__wrap">
       <a href="#" class="catalog-screen__item center">
         <img src="./images/Rectangle47.png" alt="#eror" class="catalog-screen__img" />
@@ -25,10 +25,13 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+   @import "~assets/sass/ui-kit/mixin"
 .catalog-screen
+  margin-top: 70px
   &__title
     margin-bottom: 35px
     text-align: center
+
   &__wrap
     display: grid
     grid-template-columns: repeat(3, 1fr)

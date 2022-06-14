@@ -5,7 +5,7 @@
       <img :src="require(`./images/${langActive}pick.png`)" alt="rus">
     </md-button>
 
-    <md-menu-content>
+    <md-menu-content class="lang-list">
       <md-menu-item v-for="item in langMapping" :key="item" @click="langChange(item)">
         <!-- <md-menu-item v-for="item in langMapping" :key="item" @click="langActive = item"> -->
         <img :src="require(`./images/${item}pick.png`)" :alt="item">
@@ -20,7 +20,7 @@ export default {
   
   data() {
     return {
-      langMapping: ['ru', 'en', 'fr', 'ger'],     
+      langMapping: ['ru', 'en', 'fr'],     
       langActive: 'ru',
       init() {
         this.langActive = sessionStorage.getItem('lang') ? sessionStorage.getItem('lang') : 'ru'
@@ -42,6 +42,13 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="sass">
+  .md-dense, .md-menu-item
+    img 
+      max-width: 54px
+
+  .lang-list 
+    max-width: 85px
+    min-width: 85px
 
 </style>

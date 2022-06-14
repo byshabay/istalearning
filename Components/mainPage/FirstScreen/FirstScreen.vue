@@ -1,11 +1,11 @@
 <template>
   <div class="ista-container first-screen">
     <div class="promo_clip-main" v-for="(eventContent, index) in event" :key="index">
-      <h1>{{eventContent.title}}</h1>
-      <p>
+      <h1 class="first-screen__promo_h1">{{eventContent.title}}</h1>
+      <p class="first-screen__promo_p">
         {{eventContent.description}}
       </p>
-      <md-button @click="showSubscribeDialog = true" class="md-raised md-accent first-screen__button">Записаться
+      <md-button @click="showSubscribeDialog = true" class="md-raised md-accent btn-grad  first-screen__btn">Записаться
       </md-button>
 
     </div>
@@ -47,13 +47,33 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+  @import "~assets/sass/ui-kit/mixin"
 .first-screen
   margin-top: 60px
-  display: grid
-  grid-template-columns: 60% 40%
-  grid-gap: 60px
+  display: flex
+  justify-content: space-between
 
-  &__button
-    margin-top: 20px
+  &__btn
+    margin-top: 40px
     margin-left: 0
+    padding: 4px 26px
+  
+  .promo_clip-main 
+    width: 50%
+    font-family: 'Montserrat'
+    color: $main-blue
+
+  iframe 
+    width: 40%
+    min-height: 317px
+    
+  &__promo_h1 
+    font-size: $text-48
+  
+  &__promo_p
+    font-size: $text-16
+    line-height: 150%
+    margin-top: 35px
+
+    
 </style>

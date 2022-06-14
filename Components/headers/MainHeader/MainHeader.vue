@@ -4,7 +4,7 @@
       <img
         src="~assets/images/logo/istaLogo.png"
         alt="ISTA"
-        style="height: 57px"
+        class = 'logo'
       />
     </nuxt-link>
     <div class="main-header__right">
@@ -35,7 +35,7 @@
 
       <LanguageSelect />
 
-      <md-button>Войти</md-button>
+      <md-button class="btn-grad">Войти</md-button>
     </div>
   </header>
 </template>
@@ -49,6 +49,14 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+  @import "~assets/sass/ui-kit/mixin"
+
+//LOGO STYLE START
+
+.logo 
+  max-width: 108px
+
+//LOGO STYLE END
 .main-header
   display: flex
   justify-content: space-between
@@ -61,4 +69,10 @@ export default {
   &__nav-ul
     display: flex
     align-items: center
+    .md-button
+      font-family: 'Montserrat'
+      text-transform: none
+      font-size: $text-18
+      width: 111px
+    
 </style>

@@ -6,6 +6,13 @@ $screen-xl: 1700px;
 $breakpoints-md: $screen-md;
 $breakpoints-lg: $screen-lg;
 $breakpoints-xl: $screen-xl;
+$text-16: calc((100vw - 300px)/(1440 - 300) * (16 - 14) + 14px);
+$text-18: calc((100vw - 300px)/(1440 - 300) * (18 - 14) + 14px);
+$text-32: calc((100vw - 300px)/(1440 - 300) * (32 - 28) + 28px);
+$text-48: calc((100vw - 300px)/(1440 - 300) * (48 - 34) + 34px);
+$bkg-color-1: #F8FAFE;
+$main-blue: #003C84;
+$dark-blue: #001E5B;
 
 $breakpoints: (
   md: $screen-md,
@@ -40,12 +47,13 @@ $breakpoints: (
 }
 
 @mixin retina {
+
   @media only screen and (-webkit-min-device-pixel-ratio: 2),
-    only screen and (min--moz-device-pixel-ratio: 2),
-    only screen and (-o-min-device-pixel-ratio: 2/1),
-    only screen and (min-device-pixel-ratio: 2),
-    only screen and (min-resolution: 192dpi),
-    only screen and (min-resolution: 2dppx) {
+  only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
     @content;
   }
 }
@@ -61,26 +69,31 @@ $breakpoints: (
     @content;
   }
 }
+
 @mixin media-md {
   @media screen and (min-width: $breakpoints-md) {
     @content;
   }
 }
+
 @mixin media-max-xl {
   @media screen and (max-width: $breakpoints-xl - 1) {
     @content;
   }
 }
+
 @mixin media-max-lg {
   @media screen and (max-width: $breakpoints-lg - 1) {
     @content;
   }
 }
+
 @mixin media-max-md {
   @media screen and (max-width: $breakpoints-md - 1) {
     @content;
   }
 }
+
 @mixin media-max-sm {
   @media screen and (max-width: 374px) {
     @content;
@@ -88,9 +101,9 @@ $breakpoints: (
 }
 
 @mixin media-sm {
-    @media screen and (min-width: 375px) {
-        @content;
-    }
+  @media screen and (min-width: 375px) {
+    @content;
+  }
 }
 
 @mixin partner-logo($name: 'citymobile', $path: '../img/') {

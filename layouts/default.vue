@@ -7,6 +7,7 @@
 </template>
 
 <script>
+
 import MainHeader from "~/Components/headers/MainHeader/MainHeader.vue";
 
 export default {
@@ -14,3 +15,8 @@ export default {
   components: {MainHeader}
 }
 </script>
+
+<style lang="sass">
+
+
+</style>

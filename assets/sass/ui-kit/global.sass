@@ -1,12 +1,41 @@
 @import "./mixin"
+@import "./font"
 
 .ista-container
   width: 100%
-  max-width: 100%
+  max-width: 1440px
   padding-left: 20px
   padding-right: 20px
   margin-left: auto
   margin-right: auto
+
+// BUTTON GRAD START
+
+.btn-grad
+  background: linear-gradient(258.26deg, #423994 13.49%, #F70D66 70.92%, #F5423E 93.06%)
+  border-radius: 30px
+  font-family: 'Montserrat-SM'
+  text-transform: none
+  font-size: $text-18
+  color: $bkg-color-1
+  padding: 4px 21px
+  letter-spacing: 1px
+
+.md-theme-default
+  .btn-grad
+    color: $bkg-color-1
+
+// BUTTON GRAD END
+
+// H2 START
+
+.common-h2
+  font-family: 'Montserrat'
+  font-size: $text-48
+  line-height: 150%
+
+  color: $dark-blue
+// H2 END
 
   @include media-md
     max-width: $breakpoints-md
