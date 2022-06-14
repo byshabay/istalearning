@@ -27,9 +27,12 @@ export default {
 <style lang="sass" scoped>
    @import "~assets/sass/ui-kit/mixin"
 .catalog-screen
-  margin-top: 70px
+  padding-top: 35px
+  padding-bottom: 70px
+  
+  background-color: #fff
   &__title
-    margin-bottom: 35px
+    margin-bottom: 35px 
     text-align: center
 
   &__wrap

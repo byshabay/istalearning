@@ -50,6 +50,7 @@ export default {
   @import "~assets/sass/ui-kit/mixin"
 .first-screen
   margin-top: 60px
+  padding-bottom: 70px
   display: flex
   justify-content: space-between
 

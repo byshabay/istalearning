@@ -1,12 +1,8 @@
 <template>
   <div class="advantages-screen">
-    <h2 class="advantages-screen__title">Почему мы?</h2>
+    <h2 class="advantages-screen__title common-h2">Почему мы?</h2>
     <div class="ista-container advantages-screen__wrap">
-      <AdvantageItem
-        v-for="(advantage, index) in advantages"
-        :key="index"
-        :content="advantage"
-      />
+      <AdvantageItem v-for="(advantage, index) in advantages" :key="index" :content="advantage" />
     </div>
   </div>
 </template>
@@ -19,21 +15,26 @@ export default {
   components: {AdvantageItem},
   data() {
     return {
+
       advantages: [
         {
-          title: "Первое отличное преимущество",
+          img: "advantages-1.png",
+          title: `Высокая <br> экспертность`,
           description: "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, ",
         },
         {
-          title: "Второе преимущество",
+          img: "advantages-2.png",
+          title: "Большой <br> опыт работы",
           description: "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, ",
         },
         {
-          title: "Третье преимущество",
+          img: "advantages-3.png",
+          title: "Гибкая <br> ценовая политика",
           description: "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, ",
         },
         {
-          title: "Четвертое преимущество",
+          img: "advantages-4.png",
+          title: "Профессионалы из <br> разных стран ",
           description: "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, ",
         },
       ],
@@ -43,9 +44,10 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+  @import "~assets/sass/ui-kit/mixin"
 .advantages-screen
-  margin-top: 80px
-  margin-bottom: 50px
+  padding-top: 19px 
+  padding-bottom: 35px
 
   &__title
     margin-bottom: 35px
