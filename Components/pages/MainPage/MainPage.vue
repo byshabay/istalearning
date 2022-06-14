@@ -5,6 +5,7 @@
     <AdvantagesScreen />
     <EventsScreen />
     <ConsultationScreen />
+    <CertificatesScreen />
 
   </div>
 </template>
@@ -15,10 +16,11 @@ import CatalogScreen from "~/Components/mainPage/CatalogScreen/CatalogScreen.vue
 import AdvantagesScreen from "~/Components/mainPage/AdvantagesScreen/AdvantagesScreen.vue";
 import ConsultationScreen from "~/Components/mainPage/ConsultationScreen/ConsultationScreen.vue";
 import EventsScreen from "~/Components/mainPage/EventsScreen/EventsScreen.vue";
+import CertificatesScreen from "~/Components/mainPage/CertificatesScreen/CertificatesScreen.vue";
 
 export default {
   name: "MainPage",
-  components: {EventsScreen, ConsultationScreen, AdvantagesScreen, CatalogScreen, FirstScreen}
+  components: {EventsScreen, ConsultationScreen, AdvantagesScreen, CatalogScreen, FirstScreen, CertificatesScreen}
 }
 </script>
 
