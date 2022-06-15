@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 2000px;">
+  <div>
     <FirstScreen />
     <CatalogScreen />
     <AdvantagesScreen />

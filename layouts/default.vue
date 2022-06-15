@@ -1,8 +1,13 @@
 <template>
-  <div>
+  <div class="page">
+
     <MainHeader />
     <Nuxt />
-    <MainFooter />
+    <div class="page-footer">
+      <MainFooter />
+    </div>
+
+
   </div>
 </template>
 
