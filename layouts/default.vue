@@ -2,17 +2,18 @@
   <div>
     <MainHeader />
     <Nuxt />
-<!--      <MainFooter />-->
+    <MainFooter />
   </div>
 </template>
 
 <script>
 
+import MainFooter from "~/Components/footer/MainFooter.vue";
 import MainHeader from "~/Components/headers/MainHeader/MainHeader.vue";
 
 export default {
   name: 'DefaultLayout',
-  components: {MainHeader}
+  components: {MainHeader, MainFooter}
 }
 </script>
 
