@@ -20,14 +20,14 @@
             <!-- 2.SECOND COLUMN START -->
             <div class="footer__wrap">
                 <div class="footer__h2">
-                    Партнерам
+                    {{ $t('partners')}}
                 </div>
 
                 <ul>
-                    <li><a href="#">Пункт</a></li>
-                    <li><a href="#">Пункт</a></li>
-                    <li><a href="#">Пункт</a></li>
-                    <li><a href="#">Пункт</a></li>
+                    <li><a href="#">{{ $t('paragraph')}}</a></li>
+                    <li><a href="#">{{ $t('paragraph')}}</a></li>
+                    <li><a href="#">{{ $t('paragraph')}}</a></li>
+                    <li><a href="#">{{ $t('paragraph')}}</a></li>
                 </ul>
             </div>
             <!-- 2.SECOND COLUMN END -->
@@ -35,16 +35,16 @@
             <!-- 3.THIRD COLUMN START -->
             <div class="footer__wrap">
                 <div class="footer__h2">
-                    Меню
+                    {{ $t('menu')}}
                 </div>
 
                 <ul>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Экскурсии</a></li>
-                    <li><a href="#">Родительский клуб</a></li>
-                    <li><a href="#">Языковые клубы</a></li>
-                    <li><a href="#">Блог</a></li>
-                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#">{{ $t('about')}}</a></li>
+                    <li><a href="#">{{ $t('excursions')}}</a></li>
+                    <li><a href="#">{{ $t('parents')}} </a></li>
+                    <li><a href="#">{{ $t('lang')}} </a></li>
+                    <li><a href="#">{{ $t('blog')}}</a></li>
+                    <li><a href="#">{{ $t('contact')}}</a></li>
 
                 </ul>
             </div>
@@ -55,7 +55,7 @@
 
         <div class="footer__social ista-container">
             <div class="footer__h2 ">
-                Подпишитесь на нас в соц. сетях
+                {{ $t('sub')}}
             </div>
 
             <ul>

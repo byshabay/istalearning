@@ -1,18 +1,18 @@
 <template>
   <div class="block catalog-screen">
-    <h2 class="catalog-screen__title common-h2">Каталог</h2>
+    <h2 class="catalog-screen__title common-h2"> {{ $t('catalog')}}</h2>
     <div class="ista-container catalog-screen__wrap">
       <a href="/excursions" class="catalog-screen__item center">
         <img src="./images/Rectangle47.png" alt="#eror" class="catalog-screen__img catalog-screen__img-1" />
-        <p class="catalog-screen__font">Экскурсии-онлайн</p>
+        <p class="catalog-screen__font">{{ $t('excursionsOnline')}}</p>
       </a>
       <a href="#" class="catalog-screen__item center">
         <img src="./images/birds.png" alt="#eror" class="catalog-screen__img catalog-screen__img-2" />
-        <p class="catalog-screen__font">Родительский клуб</p>
+        <p class="catalog-screen__font">{{ $t('parents')}} </p>
       </a>
       <a href="#" class="catalog-screen__item center">
         <img src="./images/Flags.png" alt="#eror" class="catalog-screen__img catalog-screen__img-3" />
-        <p class="catalog-screen__font">Языковые клубы</p>
+        <p class="catalog-screen__font">{{ $t('lang')}} </p>
       </a>
     </div>
   </div>

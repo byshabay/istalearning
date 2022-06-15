@@ -2,7 +2,7 @@
     <div class="certificates-screen">
         <div class="ista-container">
             <h2 class="common-h2 certificates-screen__h2">
-                Наши сертификаты
+                {{ $t('Наши сертификаты')}}
             </h2>
 
             <ul class="certificates-screen__list">
@@ -12,9 +12,9 @@
             </ul>
 
             <md-button class=" certificates-screen__a">
-                Смотреть еще...
+                {{ $t('Смотреть еще...')}}
             </md-button>
-            
+
         </div>
     </div>
 </template>

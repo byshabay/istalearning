@@ -1,6 +1,6 @@
 <template>
   <div class="advantages-screen">
-    <h2 class="advantages-screen__title common-h2">Почему мы?</h2>
+    <h2 class="advantages-screen__title common-h2">{{ $t('why')}}</h2>
     <div class="ista-container advantages-screen__wrap">
       <AdvantageItem v-for="(advantage, index) in advantages" :key="index" :content="advantage" />
     </div>
@@ -19,22 +19,22 @@ export default {
       advantages: [
         {
           img: "advantages-1.png",
-          title: `Высокая <br> экспертность`,
+          title: 'ad1',
           description: "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, ",
         },
         {
           img: "advantages-2.png",
-          title: "Большой <br> опыт работы",
+          title: 'ad2',
           description: "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, ",
         },
         {
           img: "advantages-3.png",
-          title: "Гибкая <br> ценовая политика",
+          title: 'ad3',
           description: "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, ",
         },
         {
           img: "advantages-4.png",
-          title: "Профессионалы из <br> разных стран ",
+          title: 'ad4',
           description: "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, ",
         },
       ],

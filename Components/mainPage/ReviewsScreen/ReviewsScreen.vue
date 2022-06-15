@@ -1,20 +1,21 @@
 <template>
     <div class="ista-container reviews-screen">
         <h2 class="common-h2 reviews-screen__h2">
-            Отзывы наших клиентов
+            {{ $t('reviews')}}
 
             <SsrCarousel v-if="reviews.length" :slides-per-page="3" show-arrows show-dots paginate-by-slide>
                 <div class="review-item photo-review">
                     <div class="review-item__h2">
-                        Фото-отзывы
+                        {{ $t('rePhoto')}}
                     </div>
                     <img class="review-item__mark-start" src="./images/mark-start.png" alt="">
 
-                    <p class="review-item__desc">Посмотрите, какие отзывы о нас в социальных сетях :)</p>
+                    <p class="review-item__desc">
+                        {{ $t('reMore')}}</p>
 
                     <div class="review-item__more">
                         <md-button>
-                            Подробнее
+                            {{ $t('more')}}
                         </md-button>
                     </div>
                     <img class="review-item__mark-end" src="./images/mark-end.png" alt="">

@@ -16,9 +16,9 @@
         </md-card-header>
 
         <md-card-actions>
-          <md-button :to="`/event/${content.id}`"> подробнее </md-button>
+          <md-button :to="`/event/${content.id}`"> {{ $t('more')}} </md-button>
 
-          <md-button @click="showSubscribeDialog"> купить </md-button>
+          <md-button @click="showSubscribeDialog"> {{ $t('buy')}} </md-button>
         </md-card-actions>
       </md-card-area>
     </md-card-media-cover>

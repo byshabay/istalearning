@@ -1,8 +1,11 @@
 <template>
   <div class="advantage-item">
     <img :src="require(`./images/${content.img}`)" alt=" #eror" class="advantage-item__img" />
-    <h2 v-html="content.title" class="advantage-item__title "></h2>
+    <h2 v-html=" $t(content.title) " class="advantage-item__title ">
+
+    </h2>
     <p class="advantage-item__desc">{{ content.description }}</p>
+    $t('excursionsOnline')
   </div>
 </template>
 

@@ -6,12 +6,14 @@
     </md-button>
 
     <md-menu-content class="lang-list">
-      <md-menu-item v-for="item in langMapping" :key="item" @click="langChange(item)">
+      <md-menu-item v-for="item in langMapping" :key="item" @click="langChange(item)" :to="switchLocalePath(item)">
         <!-- <md-menu-item v-for="item in langMapping" :key="item" @click="langActive = item"> -->
         <img :src="require(`./images/${item}pick.png`)" :alt="item">
       </md-menu-item>
     </md-menu-content>
   </md-menu>
+
+
 </template>
 
 <script>
@@ -34,7 +36,7 @@ export default {
     langChange(lang) {
       this.langActive = lang
       sessionStorage.setItem('lang', `${lang}`);
-      location.reload();
+      // location.reload();
     },
   },
  

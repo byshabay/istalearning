@@ -1,11 +1,12 @@
 <template>
   <div class="events-screen">
     <div class="ista-container">
-      <h2 class="events-screen__title common-h2">Популярные мероприятия</h2>
+      <h2 class="events-screen__title common-h2"> {{ $t('popular')}}</h2>
       <md-tabs class="events-screen__tabs" @md-changed="test">
-        <md-tab id="tab-home" md-label="Онлайн-экскурсии"></md-tab>
-        <md-tab id="tab-pages" md-label="Родительский клуб"></md-tab>
-        <md-tab id="tab-posts" md-label="Вебинары"></md-tab>
+
+        <md-tab id="tab-home" :md-label="$t('excursionsOnline')"></md-tab>
+        <md-tab id="tab-pages" :md-label="$t('parents') "></md-tab>
+        <md-tab id="tab-posts" :md-label="$t('lang')"></md-tab>
       </md-tabs>
       <SsrCarousel v-if="events.length" :slides-per-page="3" show-arrows show-dots paginate-by-slide :key="tab">
         <EventCard @showSubscribeDialog="showSubscribeDialog = true" v-for="(eventContent, index) in events"
@@ -15,6 +16,8 @@
       <md-dialog :md-active.sync="showSubscribeDialog">
         <SubscribeFormMain @sendSubscribeSuccess="showSubscribeDialog = false" />
       </md-dialog>
+
+
     </div>
   </div>
 </template>
@@ -25,9 +28,12 @@ import ssrCarouselCss from "vue-ssr-carousel/index.css";
 import EventCard from "~/Components/events/EventCard/EventCard.vue";
 import SubscribeFormMain from "~/Components/SubscribeFormMain/SubscribeFormMain.vue";
 
+
+
 export default {
   name: "EventsScreen",
   components: { EventCard, SsrCarousel, SubscribeFormMain },
+
 
   data() {
     return {
@@ -39,6 +45,7 @@ export default {
   },
 
   methods: {
+
     async getEvents(cat) {
       this.events = await this.$api.getEvents(`?cat=${cat}`);
     },

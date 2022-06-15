@@ -1,12 +1,14 @@
 <template>
   <div class="consultation-screen">
     <div class="ista-container consultation-screen__wrap">
-      <h2 class="consultation-screen__h2 common-h2">Записаться на консультацию</h2>
+      <h2 class="consultation-screen__h2 common-h2">
+        {{ $t('cons1')}}</h2>
       <p class="consult-p consultation-screen__p">
-        Пройдите анкетирование и запишитесь на 15-минутную консультацию с
-        преподавателем
+        {{ $t('cons')}}
+
       </p>
-      <md-button @click="showSubscribeDialog = true" class="consultation-screen__btn btn-grad">Записаться
+      <md-button @click="showSubscribeDialog = true" class="consultation-screen__btn btn-grad">
+        {{ $t('recording')}}
       </md-button>
     </div>
 

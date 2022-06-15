@@ -5,7 +5,8 @@
       <p class="first-screen__promo_p">
         {{eventContent.description}}
       </p>
-      <md-button @click="showSubscribeDialog = true" class="md-raised md-accent btn-grad  first-screen__btn">Записаться
+      <md-button @click="showSubscribeDialog = true" class="md-raised md-accent btn-grad  first-screen__btn"> 
+      {{$t('recording')}}
       </md-button>
 
     </div>
