@@ -69,6 +69,9 @@ export default {
     width: 40%
     min-height: 317px
     
+
+    
+    
   &__promo_h1 
     font-size: $text-48
   
@@ -76,6 +79,13 @@ export default {
     font-size: $text-16
     line-height: 150%
     margin-top: 35px
+@include desktopMin
+  .first-screen
+    align-items: center
+    iframe 
+      min-height: 300px 
+      max-height: 317px 
+
 
     
 </style>

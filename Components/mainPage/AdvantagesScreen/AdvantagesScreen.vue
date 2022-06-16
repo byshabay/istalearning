@@ -57,4 +57,7 @@ export default {
     display: flex
     justify-content: space-between
     grid-gap: 30px
+
+
+
 </style>

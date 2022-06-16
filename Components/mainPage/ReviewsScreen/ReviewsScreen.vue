@@ -3,7 +3,22 @@
         <h2 class="common-h2 reviews-screen__h2">
             {{ $t('reviews')}}
 
-            <SsrCarousel v-if="reviews.length" :slides-per-page="3" show-arrows show-dots paginate-by-slide>
+            <SsrCarousel v-if="reviews.length"  show-arrows show-dots paginate-by-slide
+                :slides-per-page="3" 
+                :responsive='[
+                    {
+                    maxWidth: 1280,
+                    slidesPerPage: 3,
+                    },
+                    {
+                    maxWidth: 1024,
+                    slidesPerPage: 2,
+                    },
+                    {
+                    maxWidth: 767,
+                    slidesPerPage: 1
+                    }
+                ]'>
                 <div class="review-item photo-review">
                     <div class="review-item__h2">
                         {{ $t('rePhoto')}}
@@ -143,4 +158,7 @@ export default {
 
             font-family: 'Montserrat-SM'
             text-align: center
+    @include desktopMin
+        .review-item 
+            padding: 19px
 </style>

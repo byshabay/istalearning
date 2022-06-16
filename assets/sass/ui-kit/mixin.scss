@@ -6,10 +6,10 @@ $screen-xl: 1700px;
 $breakpoints-md: $screen-md;
 $breakpoints-lg: $screen-lg;
 $breakpoints-xl: $screen-xl;
-$text-16: calc((100vw - 300px)/(1440 - 300) * (16 - 14) + 14px);
+$text-16: calc((100vw - 300px)/(1440 - 300) * (16 - 12) + 12px);
 $text-18: calc((100vw - 300px)/(1440 - 300) * (18 - 14) + 14px);
-$text-32: calc((100vw - 300px)/(1440 - 300) * (28 - 24) + 24px);
-$text-48: calc((100vw - 300px)/(1440 - 300) * (40 - 34) + 34px);
+$text-32: calc((100vw - 300px)/(1440 - 300) * (28 - 18) + 18px);
+$text-48: calc((100vw - 300px)/(1440 - 300) * (40 - 32) + 32px);
 $bkg-color-1: #F8FAFE;
 $bkg-color: #CBE2EF;
 $main-blue: #003C84;
@@ -20,6 +20,35 @@ $breakpoints: (
   lg: $screen-lg,
   xl: $screen-xl
 );
+
+$breakpoint_xxl: 1440px;
+$breakpoint_xl: 1300px;
+$breakpoint_l: 1022px;
+
+@mixin desktop() {
+  @media (max-width: $breakpoint_xxl) {
+    @content;
+  }
+}
+
+@mixin desktopMin() {
+  @media (max-width: $breakpoint_xl) {
+    @content;
+  }
+}
+
+@mixin laptop() {
+  @media (max-width: $breakpoint_l) {
+    @content;
+  }
+}
+
+
+@mixin desktop() {
+  @media (max-width: $breakpoint_xxl) {
+    @content;
+  }
+}
 
 @mixin placeholder($pn-color) {
   ::-webkit-input-placeholder {

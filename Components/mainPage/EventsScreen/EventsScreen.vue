@@ -8,7 +8,22 @@
         <md-tab id="tab-pages" :md-label="$t('parents') "></md-tab>
         <md-tab id="tab-posts" :md-label="$t('lang')"></md-tab>
       </md-tabs>
-      <SsrCarousel v-if="events.length" :slides-per-page="3" show-arrows show-dots paginate-by-slide :key="tab">
+      <SsrCarousel v-if="events.length" show-arrows show-dots paginate-by-slide :key="tab" 
+      :slides-per-page="3"
+      :responsive='[
+        {
+          maxWidth: 1280,
+          slidesPerPage: 3,
+        },
+        {
+          maxWidth: 1024,
+          slidesPerPage: 2,
+        },
+        {
+          maxWidth: 767,
+          slidesPerPage: 1
+        }
+      ]'>
         <EventCard @showSubscribeDialog="showSubscribeDialog = true" v-for="(eventContent, index) in events"
           :key="index" :content="eventContent" />
       </SsrCarousel>
@@ -33,8 +48,6 @@ import SubscribeFormMain from "~/Components/SubscribeFormMain/SubscribeFormMain.
 export default {
   name: "EventsScreen",
   components: { EventCard, SsrCarousel, SubscribeFormMain },
-
-
   data() {
     return {
       showSubscribeDialog: false,
@@ -61,6 +74,7 @@ export default {
       this.tab = e;
     },
   },
+
 };
 </script>
 

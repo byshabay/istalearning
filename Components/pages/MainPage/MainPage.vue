@@ -1,5 +1,6 @@
 <template>
   <div>
+    
     <FirstScreen />
     <CatalogScreen />
     <AdvantagesScreen />
@@ -7,6 +8,7 @@
     <ConsultationScreen />
     <CertificatesScreen />
     <ReviewsScreen />
+
 
   </div>
 </template>
@@ -22,7 +24,7 @@ import ReviewsScreen from "../../mainPage/ReviewsScreen/ReviewsScreen.vue";
 
 export default {
   name: "MainPage",
-  components: { EventsScreen, ConsultationScreen, AdvantagesScreen, CatalogScreen, FirstScreen, CertificatesScreen, ReviewsScreen }
+  components: {EventsScreen, ConsultationScreen, AdvantagesScreen, CatalogScreen, FirstScreen, CertificatesScreen, ReviewsScreen }
 }
 </script>
 

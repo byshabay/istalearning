@@ -2,7 +2,7 @@
     <div class="certificates-screen">
         <div class="ista-container">
             <h2 class="common-h2 certificates-screen__h2">
-                {{ $t('Наши сертификаты')}}
+                {{ $t('cer')}}
             </h2>
 
             <ul class="certificates-screen__list">
@@ -12,7 +12,7 @@
             </ul>
 
             <md-button class=" certificates-screen__a">
-                {{ $t('Смотреть еще...')}}
+                {{ $t('watchMore')}}
             </md-button>
 
         </div>
@@ -61,5 +61,11 @@ export default {
                 max-height: 280px
                 height: 270px
                 object-fit: cover
+    @include laptop
+        .certificates-screen
+            li
+                img
+                    height: 200px
+        
 
 </style>

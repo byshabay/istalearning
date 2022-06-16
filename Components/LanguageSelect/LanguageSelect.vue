@@ -48,7 +48,8 @@ export default {
   .md-dense, .md-menu-item
     img 
       max-width: 54px
-
+  .md-dense 
+    z-index: 3
   .lang-list 
     max-width: 85px
     min-width: 85px

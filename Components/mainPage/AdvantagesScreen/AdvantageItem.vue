@@ -5,7 +5,6 @@
 
     </h2>
     <p class="advantage-item__desc">{{ content.description }}</p>
-    $t('excursionsOnline')
   </div>
 </template>
 
@@ -52,4 +51,7 @@ export default {
     line-height: 150%
     
     color: $dark-blue
+@include laptop
+  .advantage-item
+    padding: 0px
 </style>

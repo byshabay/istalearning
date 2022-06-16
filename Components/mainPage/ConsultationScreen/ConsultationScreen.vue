@@ -60,5 +60,11 @@ export default {
   &__btn.btn-grad 
     color: $dark-blue
     background: #fff
+@include laptop
+.consultation-screen
+  &__h2.common-h2 
+    font-size: $text-32
+  &__p 
+    font-size: $text-16
 
 </style>

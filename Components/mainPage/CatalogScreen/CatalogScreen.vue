@@ -82,5 +82,22 @@ export default {
 
     transition: 1s
     color: $dark-blue
+  
+  @include laptop
+  .catalog-screen
+
+    &__img,
+    &__img-1,
+    &__img-2 
+      width: 70%
+      min-height: 180px
+      max-height: 180px
+    &__item
+      padding: 19px 0
+    
+    &__font
+      font-size: $text-18
+
+    
 
 </style>

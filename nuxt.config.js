@@ -87,6 +87,7 @@ export default {
           "blog": "Блог",
           "contact": "Контакты",
           "signIn": "Войти",
+          "main": "Главная",
           // event card
           "more": "подробнее",
           "buy": "купить",
@@ -134,6 +135,7 @@ export default {
           "blog": "Blog",
           "contact": "Contacts",
           "signIn": "Sign In",
+          "main": "Home",
           // event card
           "more": "more",
           "buy": "buy",
@@ -176,6 +178,7 @@ export default {
           "blog": "Blog",
           "contact": "Contacts",
           "signIn": "Connexion",
+          "main": "Domicile",
           // event card
           "more": "Suite",
           "buy": "acheter",

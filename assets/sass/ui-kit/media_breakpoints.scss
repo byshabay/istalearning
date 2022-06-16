@@ -1,0 +1,7 @@
+$breakpoint_xxl: 1440px;
+
+@mixin desktop() {
+    @media (max-width: $breakpoint_xxl) {
+        @content;
+    }
+}
