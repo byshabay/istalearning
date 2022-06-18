@@ -15,7 +15,7 @@ data() {
     methods: {
         email() {
             this.$mail.send({
-                from: 'lala2011lala2011@mail.ru',
+                from: 'shabbaykina99@gmail.com',
                 subject: 'Incredible',
                 text: 'This is an incredible test message',
             })
