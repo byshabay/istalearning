@@ -150,14 +150,9 @@ export default {
         // this.clearForm()
         this.$emit('sendSubscribeSuccess')
       })
+      
 
-      // Instead of this timeout, here you can call your API
-      // window.setTimeout(() => {
-      //   this.lastUser = `${this.form.firstName} ${this.form.lastName}`
-      //   this.userSaved = true
-      //   this.sending = false
-      //   // this.clearForm()
-      // }, 1500)
+
     },
     validateUser () {
       this.$v.$touch()

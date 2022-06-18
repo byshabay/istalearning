@@ -66,6 +66,21 @@ export default {
         'MdProgress',
       ]
     }],
+    ['nuxt-mail', {
+      message: {
+        to: 'shabbaykina@mail.ru',
+      },
+      smtp: {
+        host: "smtp-relay.sendinblue.com",
+        port: 587,
+        auth: {
+          type: "login",
+          user: 'shabbaykina99@gmail.com',
+          pass: '2EjM7wpUZdQWLqNK',
+        },
+      },
+    }],
+
   ],
 
   // i18n settings
