@@ -68,6 +68,7 @@ export default {
     }],
     ['nuxt-mail', {
       message: {
+        from: 'lala2011lala2011@mail.ru',
         to: 'shabbaykina@mail.ru',
       },
       smtp: {
