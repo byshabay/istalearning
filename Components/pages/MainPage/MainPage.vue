@@ -1,7 +1,6 @@
 <template>
   <div>
-    <TestHeader />
-    
+
     <FirstScreen />
     <CatalogScreen />
     <AdvantagesScreen />
@@ -15,7 +14,6 @@
 </template>
 
 <script>
-import TestHeader from "~/Components/headers/TestHeader.vue";
 import FirstScreen from "~/Components/mainPage/FirstScreen/FirstScreen.vue";
 import CatalogScreen from "~/Components/mainPage/CatalogScreen/CatalogScreen.vue";
 import AdvantagesScreen from "~/Components/mainPage/AdvantagesScreen/AdvantagesScreen.vue";
@@ -26,7 +24,7 @@ import ReviewsScreen from "../../mainPage/ReviewsScreen/ReviewsScreen.vue";
 
 export default {
   name: "MainPage",
-  components: {TestHeader, EventsScreen, ConsultationScreen, AdvantagesScreen, CatalogScreen, FirstScreen, CertificatesScreen, ReviewsScreen }
+  components: {EventsScreen, ConsultationScreen, AdvantagesScreen, CatalogScreen, FirstScreen, CertificatesScreen, ReviewsScreen }
 }
 </script>
 
