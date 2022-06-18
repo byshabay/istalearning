@@ -1,12 +1,14 @@
 <template>
   <div class="ista-container first-screen">
     <div class="promo_clip-main" v-for="(eventContent, index) in event" :key="index">
-      <h1 class="first-screen__promo_h1">{{eventContent.title}}</h1>
-      <p class="first-screen__promo_p">
-        {{eventContent.description}}
-      </p>
-      <md-button @click="showSubscribeDialog = true" class="md-raised md-accent btn-grad  first-screen__btn"> 
-      {{$t('recording')}}
+      <div class="first-screen__text">
+        <h1 class="first-screen__promo_h1">{{eventContent.title}}</h1>
+        <p class="first-screen__promo_p">
+          {{eventContent.description}}
+        </p>
+      </div>
+      <md-button @click="showSubscribeDialog = true" class="md-raised md-accent btn-grad  first-screen__btn">
+        {{$t('recording')}}
       </md-button>
 
     </div>
@@ -16,7 +18,8 @@
       allowfullscreen></iframe>
 
     <md-dialog :md-active.sync="showSubscribeDialog">
-      <SubscribeFormMain @sendSubscribeSuccess="showSubscribeDialog = false" />
+      <SubscribeFormMain @sendSubscribeSuccess="showSubscribeDialog = false" v-for="(eventContent, index) in event"
+        :content="eventContent" :key="index" />
     </md-dialog>
   </div>
 </template>
@@ -59,6 +62,7 @@ export default {
     margin-top: 40px
     margin-left: 0
     padding: 4px 26px
+    z-index: 3 !important
   
   .promo_clip-main 
     width: 50%
@@ -67,10 +71,7 @@ export default {
 
   iframe 
     width: 40%
-    min-height: 317px
-    
-
-    
+    min-height: 317px    
     
   &__promo_h1 
     font-size: $text-48
@@ -85,6 +86,25 @@ export default {
     iframe 
       min-height: 300px 
       max-height: 317px 
+@include tablet
+  .first-screen
+    margin-top: 19px
+    padding-bottom: 19px
+    flex-direction: column
+    &__text
+      width: 100%
+    &__btn 
+      width: 30%
+      margin: 19px auto
+    &__h1
+      text-align: center
+    &__promo_p
+      margin-top: 19px 
+    .promo_clip-main
+      width: 100%
+      text-align: center
+    iframe 
+      width: 100%
 
 
     

@@ -1,11 +1,12 @@
 <template>
   <header class="ista-container main-header page-container">
-    <!-- BURGER START -->
-    <div class="main-header__sm">
+    <div class="main-header__left">
+      <!-- BURGER START -->
+      <div class=" main-header__sm">
       <md-toolbar class="md-large md-primary">
         <div class="md-toolbar-row">
           <div class="md-toolbar-section-start">
-            <md-button @click="menuVisible = !menuVisible">
+            <md-button class="burger-btn" @click="menuVisible = !menuVisible">
               <div class="burger">
                 <img src="./images/menu.png" alt="">
               </div>
@@ -51,6 +52,7 @@
     <nuxt-link to="/">
       <img src="~assets/images/logo/istaLogo.png" alt="ISTA" class='logo' />
     </nuxt-link>
+    </div>
     <div class="main-header__right">
       <!-- DESKTOP MENU START -->
       <nav class="main-header__dt">
@@ -104,12 +106,26 @@ export default {
   max-width: 108px
 
 //LOGO STYLE END
+
+.md-large 
+  .md-toolbar-section-start
+    padding: 0
+    margin: 0
+.burger-btn
+  div
+    padding: 0 !important
+    margin: 0 !important
+.md-button.burger-btn
+   .md-ripple
+      padding: 0 !important
+      margin: 0 !important
 .main-header
   display: flex
   justify-content: space-between
   align-items: center
 
-  &__right
+  &__right,
+  &__left
     display: flex
     align-items: center
     button

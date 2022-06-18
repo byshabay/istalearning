@@ -184,6 +184,10 @@ export default {
 
   &__tabs
     margin-bottom: 15px
-
+@include tablet
+  .events-screen
+    padding-top: 19px
+    &__title
+      margin-bottom: 19px
 
 </style>

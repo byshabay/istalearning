@@ -27,8 +27,7 @@ export default {
 <style lang="sass" scoped>
    @import "~assets/sass/ui-kit/mixin"
 .catalog-screen
-  padding-top: 35px
-  padding-bottom: 70px
+  padding: 35px 0 70px
   
   background-color: #fff
   &__title
@@ -83,7 +82,7 @@ export default {
     transition: 1s
     color: $dark-blue
   
-  @include laptop
+@include laptop
   .catalog-screen
 
     &__img,
@@ -97,6 +96,20 @@ export default {
     
     &__font
       font-size: $text-18
+
+@include tablet
+  .catalog-screen
+    padding: 19px 0px 19px
+
+    &__title
+      margin-bottom: 19px
+
+    &__img,
+    &__img-1,
+    &__img-2 
+      width: 50%
+      min-height: 50px
+      max-height: 100px
 
     
 

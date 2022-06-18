@@ -58,6 +58,12 @@ export default {
     justify-content: space-between
     grid-gap: 30px
 
+@include tablet
+  .advantages-screen
+    padding: 19px 0
+    &__title 
+      margin-bottom: 19px
+
 
 
 </style>

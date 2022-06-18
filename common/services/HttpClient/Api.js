@@ -20,7 +20,8 @@ class Api {
     if (lang == undefined || lang == null) {
       var lang = 'ru'
     }
-    return this.httpClient.post(`${lang}/api/event_order/`, body)
+    // return this.httpClient.post(`${lang}/api/event_order/`, body)
+    return this.httpClient.post(`ru/api/event_order/`, body)
   }
 }
 

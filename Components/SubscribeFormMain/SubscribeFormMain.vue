@@ -11,8 +11,7 @@
             <div class="md-layout-item md-small-size-100">
               <md-field :class="getValidationClass('name')">
                 <label for="name">Имя</label>
-                <md-input name="name" id="name" autocomplete="given-name" v-model="form.name"
-                  :disabled="sending" />
+                <md-input name="name" id="name" autocomplete="given-name" v-model="form.name" :disabled="sending" />
                 <span class="md-error" v-if="!$v.form.name.required">Обязательное поле</span>
                 <span class="md-error" v-else-if="!$v.form.name.minlength">Слишком короткое имя</span>
               </md-field>
@@ -21,8 +20,7 @@
             <div class="md-layout-item md-small-size-100">
               <md-field :class="getValidationClass('phone')">
                 <label for="phone">Телефон</label>
-                <md-input name="phone" id="phone" autocomplete="tel" v-model="form.phone"
-                  :disabled="sending" />
+                <md-input name="phone" id="phone" autocomplete="tel" v-model="form.phone" :disabled="sending" />
                 <span class="md-error" v-if="!$v.form.phone.required">Обязательное поле</span>
                 <span class="md-error" v-else-if="!$v.form.phone.minlength">Неккоректные данные</span>
               </md-field>
@@ -38,10 +36,12 @@
           </md-field>
 
 
-          <md-field>
-            <md-input v-for="(eventContent, index) in event" :key="index" type="text" name="event" id="event"
-              v-model="form.event" v-bind:value="eventContent.id" :disabled="sending" />
-          </md-field>
+          <!-- <md-field>
+            
+            <md-input type="text" name="event" id="event" v-model="form.event" :value="content.id"
+              :disabled="sending" />
+           
+          </md-field> -->
         </md-card-content>
 
         <md-progress-bar md-mode="indeterminate" v-if="sending" />
@@ -50,6 +50,9 @@
           <md-button type="submit" class="md-primary" :disabled="sending">Записаться</md-button>
         </md-card-actions>
       </md-card>
+      <!-- 
+      событие {{event}}
+      Событие формы {{form.event}} -->
 
       <!-- <md-snackbar :md-active.sync="userSaved">Ваша заявка успешно принята! Наш менеджер свяжется с вами по указанному
         адресу: {{ email }}</md-snackbar> -->
@@ -70,18 +73,27 @@ import {
 
 export default {
   name: 'SubscribeFormMain',
-  mixins: [validationMixin],
-  data: () => ({
-    form: {
-      name: null,
-      phone: null,
-      event: null,
-      email: null,
+  props: {
+    content: {
+      type: Object,
     },
-    userSaved: false,
-    sending: false,
-    lastUser: null
-  }),
+  },
+  mixins: [validationMixin],
+  data() {
+    return {
+      form: {
+        price: this.content.price,
+        name: null,
+        phone: null,
+        email: null,
+        event: this.content.id,
+      },
+      userSaved: false,
+      sending: false,
+      lastUser: null,
+      // event: [],
+    }
+  },
   validations: {
     form: {
       name: {
@@ -101,12 +113,12 @@ export default {
       event: {
         required,
         numeric
+      },
+      price : {
+        required,
+        numeric
       }
     }
-  },
-  async mounted() {
-    this.event = await this.$api.getEvents(`?is_promo=true`)
-    
   },
   methods: {
     getValidationClass (fieldName) {
@@ -124,6 +136,7 @@ export default {
       this.form.phone = null
       this.form.event = null
       this.form.email = null
+      this.form.price = null
     },
     
     saveUser () {

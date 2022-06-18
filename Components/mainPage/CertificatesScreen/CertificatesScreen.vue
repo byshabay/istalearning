@@ -66,6 +66,13 @@ export default {
             li
                 img
                     height: 200px
+    @include tablet
+        .certificates-screen
+            li
+                img
+                    height: 150px
+            .md-button.md-theme-default
+                font-size: $text-16
         
 
 </style>

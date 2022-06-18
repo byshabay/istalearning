@@ -54,4 +54,15 @@ export default {
 @include laptop
   .advantage-item
     padding: 0px
+@include tablet
+  .advantage-item
+    &__title
+      margin: 19px auto
+
+      font-size: $text-16
+    &__img
+      width: 30px
+      height: 30px
+
+
 </style>

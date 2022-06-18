@@ -9,7 +9,7 @@ $breakpoints-xl: $screen-xl;
 $text-16: calc((100vw - 300px)/(1440 - 300) * (16 - 12) + 12px);
 $text-18: calc((100vw - 300px)/(1440 - 300) * (18 - 14) + 14px);
 $text-32: calc((100vw - 300px)/(1440 - 300) * (28 - 18) + 18px);
-$text-48: calc((100vw - 300px)/(1440 - 300) * (40 - 32) + 32px);
+$text-48: calc((100vw - 300px)/(1440 - 300) * (40 - 24) + 24px);
 $bkg-color-1: #F8FAFE;
 $bkg-color: #CBE2EF;
 $main-blue: #003C84;
@@ -24,6 +24,9 @@ $breakpoints: (
 $breakpoint_xxl: 1440px;
 $breakpoint_xl: 1300px;
 $breakpoint_l: 1022px;
+$breakpoint_m: 800px;
+$breakpoint_s: 500px;
+$breakpoint_xs: 320px;
 
 @mixin desktop() {
   @media (max-width: $breakpoint_xxl) {
@@ -44,8 +47,20 @@ $breakpoint_l: 1022px;
 }
 
 
-@mixin desktop() {
-  @media (max-width: $breakpoint_xxl) {
+@mixin tablet() {
+  @media (max-width: $breakpoint_m) {
+    @content;
+  }
+}
+
+@mixin phone() {
+  @media (max-width: $breakpoint_s) {
+    @content;
+  }
+}
+
+@mixin phoneMin() {
+  @media (max-width: $breakpoint_xs) {
     @content;
   }
 }
