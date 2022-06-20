@@ -8,30 +8,30 @@
         <md-tab id="tab-pages" :md-label="$t('parents') "></md-tab>
         <md-tab id="tab-posts" :md-label="$t('lang')"></md-tab>
       </md-tabs>
-      <SsrCarousel v-if="events.length" show-arrows show-dots paginate-by-slide :key="tab" 
-      :slides-per-page="3"
-      :responsive='[
-        {
-          maxWidth: 1280,
-          slidesPerPage: 3,
-        },
-        {
-          maxWidth: 1024,
-          slidesPerPage: 2,
-        },
-        {
-          maxWidth: 767,
-          slidesPerPage: 1
-        }
-      ]'>
-        <EventCard @showSubscribeDialog="showSubscribeDialog = true" v-for="(eventContent, index) in events"
-          :key="index" :content="eventContent" />
+      <SsrCarousel v-if="events.length" show-arrows show-dots paginate-by-slide :key="tab" :slides-per-page="3"
+        :responsive='[
+          {
+            maxWidth: 1280,
+            slidesPerPage: 3,
+          },
+          {
+            maxWidth: 1024,
+            slidesPerPage: 2,
+          },
+          {
+            maxWidth: 767,
+            slidesPerPage: 1
+          }
+        ]'>
+        <EventCard @showSubscribeDialog="showSubscribe" v-for="(eventContent, index) in events" :key="index"
+          :content="eventContent" />
+        <!-- <EventCard @showSubscribeDialog="showSubscribeDialog = true" v-for="(eventContent, index) in events"
+          :key="index" :content="eventContent" /> -->
       </SsrCarousel>
 
       <md-dialog :md-active.sync="showSubscribeDialog">
-        <SubscribeFormMain @sendSubscribeSuccess="showSubscribeDialog = false" />
+        <SubscribeFormMain @sendSubscribeSuccess="showSubscribeDialog = false" :content="currentEvent" />
       </md-dialog>
-
 
     </div>
   </div>
@@ -54,10 +54,17 @@ export default {
       tab: "tab-home",
       count: 2,
       events: [],
+      currentEvent: null 
     };
   },
 
   methods: {
+    showSubscribe(data) {
+      // this.showSubscribeDialog(true)
+      this.showSubscribeDialog = true
+      this.currentEvent = data.content
+      console.log(this.currentEvent)
+    },
 
     async getEvents(cat) {
       this.events = await this.$api.getEvents(`?cat=${cat}`);

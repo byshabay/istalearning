@@ -37,7 +37,10 @@ export default {
   methods: {
     showSubscribeDialog() {
       console.log("test");
-      this.$emit("showSubscribeDialog");
+      this.$emit("showSubscribeDialog", {
+        content: this.content
+      });
+      // this.$emit('testEmit', {content: this.content});
       this.$nextTick();
     },
   },
