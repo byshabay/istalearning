@@ -13,16 +13,20 @@
     </div>
 
     <md-dialog :md-active.sync="showSubscribeDialog">
-      <SubscribeFormMain @sendSubscribeSuccess="showSubscribeDialog = false" />
+      <SubscribeConsultation @sendSubscribeSuccess="showSubscribeDialog = false" />
     </md-dialog>
   </div>
 </template>
 
 <script>
-import SubscribeFormMain from "~/Components/SubscribeFormMain/SubscribeFormMain.vue";
+
+import SubscribeConsultation from "~/Components/SubscribeConsultation/SubscribeConsultation.vue";
 export default {
   name: "ConsultationScreen",
-  components: {SubscribeFormMain},
+  components: { 
+    SubscribeConsultation, 
+    
+    },
   data() {
     return {
       showSubscribeDialog: false

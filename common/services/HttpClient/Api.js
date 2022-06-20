@@ -23,6 +23,15 @@ class Api {
     // return this.httpClient.post(`${lang}/api/event_order/`, body)
     return this.httpClient.post(`ru/api/event_order/`, body)
   }
+
+  sendConsultation(body) {
+    var lang = sessionStorage.getItem('lang')
+    if (lang == undefined || lang == null) {
+      var lang = 'ru'
+    }
+    // return this.httpClient.post(`${lang}/api/event_order/`, body)
+    return this.httpClient.post(`ru/api/consultation_order/`, body)
+  }
 }
 
 export default Api
