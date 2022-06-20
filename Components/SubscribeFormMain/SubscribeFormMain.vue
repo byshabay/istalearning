@@ -3,26 +3,27 @@
     <form novalidate class="md-layout" @submit.prevent="validateUser">
       <md-card class="md-layout-item md-small-size-100">
         <md-card-header>
-          <div class="md-title">Записаться на мероприятие</div>
+          <div class="md-title">{{ $t('subMain')}}</div>
         </md-card-header>
 
         <md-card-content>
           <div class="md-layout md-gutter">
             <div class="md-layout-item md-small-size-100">
               <md-field :class="getValidationClass('name')">
-                <label for="name">Имя</label>
+                <label for="name">{{ $t('name')}}</label>
                 <md-input name="name" id="name" autocomplete="given-name" v-model="form.name" :disabled="sending" />
-                <span class="md-error" v-if="!$v.form.name.required">Обязательное поле</span>
-                <span class="md-error" v-else-if="!$v.form.name.minlength">Слишком короткое имя</span>
+                <span class="md-error" v-if="!$v.form.name.required">{{ $t('required')}}</span>
+                <span class="md-error" v-else-if="!$v.form.name.minlength">{{ $t('shortName')}}
+                </span>
               </md-field>
             </div>
 
             <div class="md-layout-item md-small-size-100">
               <md-field :class="getValidationClass('phone')">
-                <label for="phone">Телефон</label>
+                <label for="phone">{{ $t('tel')}}</label>
                 <md-input name="phone" id="phone" autocomplete="tel" v-model="form.phone" :disabled="sending" />
-                <span class="md-error" v-if="!$v.form.phone.required">Обязательное поле</span>
-                <span class="md-error" v-else-if="!$v.form.phone.minlength">Неккоректные данные</span>
+                <span class="md-error" v-if="!$v.form.phone.required">{{ $t('required')}} </span>
+                <span class="md-error" v-else-if="!$v.form.phone.minlength">{{ $t('incorrect')}} </span>
               </md-field>
             </div>
           </div>
@@ -31,31 +32,23 @@
             <label for="email">Email</label>
             <md-input type="email" name="email" id="email" autocomplete="email" v-model="form.email"
               :disabled="sending" />
-            <span class="md-error" v-if="!$v.form.email.required">Обязательное поле</span>
-            <span class="md-error" v-else-if="!$v.form.email.email">Неккоректные данные</span>
+            <span class="md-error" v-if="!$v.form.email.required">{{ $t('required')}} </span>
+            <span class="md-error" v-else-if="!$v.form.email.email">{{ $t('incorrect')}} </span>
           </md-field>
 
-
-          <!-- <md-field>
-            
-            <md-input type="text" name="event" id="event" v-model="form.event" :value="content.id"
-              :disabled="sending" />
-           
-          </md-field> -->
         </md-card-content>
 
         <md-progress-bar md-mode="indeterminate" v-if="sending" />
 
         <md-card-actions>
-          <md-button type="submit" class="md-primary" :disabled="sending">Записаться</md-button>
+          <md-button type="submit" class="md-primary" :disabled="sending">{{ $t('recording')}}</md-button>
         </md-card-actions>
       </md-card>
-      <!-- 
-      событие {{event}}
-      Событие формы {{form.event}} -->
-
-      <!-- <md-snackbar :md-active.sync="userSaved">Ваша заявка успешно принята! Наш менеджер свяжется с вами по указанному
-        адресу: {{ email }}</md-snackbar> -->
+      <md-snackbar :md-active.sync="userSaved" :md-position="position" :md-duration="isInfinity ? Infinity : duration"
+        md-persistent>
+        {{ $t('manager')}} {{ form.email }}
+        <md-button class="md-primary" @click="userSaved = false">{{ $t('Закрыть')}}</md-button>
+      </md-snackbar>
     </form>
   </div>
 </template>
@@ -91,7 +84,9 @@ export default {
       userSaved: false,
       sending: false,
       lastUser: null,
-      // event: [],
+      position: 'center',
+      duration: 4000,
+      isInfinity: false
     }
   },
   validations: {
@@ -141,19 +136,22 @@ export default {
     
     saveUser () {
       this.sending = true
+      this.userSaved = true
 
       this.$api.sendSubscribe(this.form).finally(() => {
 
-        this.lastUser = `${this.form.name}`
-        this.userSaved = true
-        this.sending = false
-        // this.clearForm()
-        this.$emit('sendSubscribeSuccess')
-        this.$mail.send({
-          from: 'shabbaykina99@gmail.com',
-          subject: 'Incredible',
-          text: 'This is an incredible test message',
-        })
+        window.setTimeout(() => {
+          this.lastUser = `${this.form.email}`;
+          this.userSaved = true;
+          this.sending = false;
+          this.clearForm();
+          this.$emit('sendSubscribeSuccess')
+          this.$mail.send({
+            from: 'shabbaykina99@gmail.com',
+            subject: 'Incredible',
+            text: 'This is an incredible test message',
+          })
+        }, 1500);
       })
       
 

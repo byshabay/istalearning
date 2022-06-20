@@ -133,13 +133,28 @@ export default {
           "reMore": "Посмотрите, какие отзывы о нас в социальных сетях :)",
           // events screen
           "popular": "Популярные мероприятия",
+          // subscribe consultation
+          "subCons": "Записаться на консультацию",
+          "subConsH2": "Для определения уровня владения языком",
+          "name": "Имя",
+          "required": "Обязательное поле",
+          "shortName": "Слишком короткое имя",
+          "tel": "Телефон",
+          "incorrect": "Неккоректные данные",
+          "langCons": "Язык, который хотели бы изучить",
+          "langConsChoise": "Выберите нужный язык",
+          "en": "Английский",
+          "fr": "Французский",
+          "rus": "Русский",
+          "comment": "Комментарий",
+          "manager": "Наш менеджер свяжется с вами по указанному адресу: ",
+          "close": "Закрыть",
+          // subscribe main
+          "subMain": "Записаться на мероприятие",
+          "": "",
+          "": "",
+          "": "",
           // 1. MAIN PAGE END
-          "": "",
-          "": "",
-          "": "",
-          "": "",
-          "": "",
-          "": "",
         },
         "en": {
           // 1. MAIN PAGE START
@@ -181,6 +196,25 @@ export default {
           "reMore": "See what reviews about us in social networks :)",
           // events screen
           "popular": "Popular events",
+          // subscribe consultation
+          "subCons": "Sign up for a consultation",
+          "subConsH2": "To determine the level of language proficiency",
+          "name": "Name",
+          "required": "Required field",
+          "shortName": "Name too short",
+          "tel": "Phone",
+          "incorrect": "Incorrect data",
+          "langCons": "Language you would like to learn",
+          "langConsChoise": "Choose your desired language",
+          "en": "English",
+          "fr": "French",
+          "rus": "Russian",
+          "comment": "Comment",
+          "manager": "Our manager will contact you at the specified address: ",
+          "close": "Close",
+          // subscribe main
+          "subMain": "Sign up for an event",
+
           // 1. MAIN PAGE END
 
         },
@@ -224,6 +258,24 @@ export default {
           "reMore": "Voir les avis sur nous sur les réseaux sociaux :)",
           // events screen
           "popular": "Événements populaires",
+          // subscribe consultation
+          "subCons": "Inscrivez-vous pour une consultation",
+          "subConsH2": "Pour déterminer le niveau de compétence linguistique",
+          "name": "Nom",
+          "required": "Champ obligatoire",
+          "shortName": "Nom trop court",
+          "tel": "Téléphone",
+          "incorrect": "Données incorrectes",
+          "langCons": "Langue que vous aimeriez apprendre",
+          "langConsChoise": "Choisissez la langue souhaitée",
+          "en": "Anglais",
+          "fr": "Français",
+          "rus": "Russe",
+          "comment": "Commentaire",
+          "manager": "Notre responsable vous contactera à l'adresse indiquée : ",
+          "close": "Fermer",
+          // subscribe main
+          "subMain": "S'inscrire à un événement",
           // 1. MAIN PAGE END
 
         },

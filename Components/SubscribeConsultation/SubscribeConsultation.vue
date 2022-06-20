@@ -1,30 +1,30 @@
 <template>
-    <form novalidate class="md-layout" @submit.prevent="validateUser">
+    <form novalidate class="md-layout" @submit.stop.prevent="validateUser">
         <md-card class="md-layout-item md-small-size-100">
             <md-card-header>
-                <div class="md-title">Записаться на консультацию</div>
-                <div class="cons__h2">Для определения уровня владения языком</div>
+                <div class="md-title">{{ $t('subCons')}}</div>
+                <div class="cons__h2">{{ $t('subConsH2')}}</div>
             </md-card-header>
 
             <md-card-content>
                 <div class="md-layout md-gutter">
                     <div class="md-layout-item md-small-size-100">
                         <md-field :class="getValidationClass('name')">
-                            <label for="name">Имя</label>
+                            <label for="name">{{ $t('name')}}</label>
                             <md-input name="name" id="name" autocomplete="given-name" v-model="form.name"
                                 :disabled="sending" />
-                            <span class="md-error" v-if="!$v.form.name.required">Обязательное поле</span>
-                            <span class="md-error" v-else-if="!$v.form.name.minlength">Слишком короткое имя</span>
+                            <span class="md-error" v-if="!$v.form.name.required">{{ $t('required')}}</span>
+                            <span class="md-error" v-else-if="!$v.form.name.minlength">{{ $t('shortName')}}</span>
                         </md-field>
                     </div>
 
                     <div class="md-layout-item md-small-size-100">
                         <md-field :class="getValidationClass('phone')">
-                            <label for="phone">Телефон</label>
+                            <label for="phone">{{ $t('tel')}}</label>
                             <md-input name="phone" id="phone" autocomplete="tel" v-model="form.phone"
                                 :disabled="sending" />
-                            <span class="md-error" v-if="!$v.form.phone.required">Обязательное поле</span>
-                            <span class="md-error" v-else-if="!$v.form.phone.minlength">Неккоректные данные</span>
+                            <span class="md-error" v-if="!$v.form.phone.required">{{ $t('required')}}</span>
+                            <span class="md-error" v-else-if="!$v.form.phone.minlength">{{ $t('incorrect')}}</span>
                         </md-field>
                     </div>
                 </div>
@@ -33,58 +33,53 @@
                     <label for="email">Email</label>
                     <md-input type="email" name="email" id="email" autocomplete="email" v-model="form.email"
                         :disabled="sending" />
-                    <span class="md-error" v-if="!$v.form.email.required">Обязательное поле</span>
-                    <span class="md-error" v-else-if="!$v.form.email.email">Неккоректные данные</span>
+                    <span class="md-error" v-if="!$v.form.email.required">{{ $t('required')}} </span>
+                    <span class="md-error" v-else-if="!$v.form.email.email">{{ $t('incorrect')}}</span>
                 </md-field>
 
                 <md-field :class="getValidationClass('language')">
-                    <label for="language">Язык, который хотели бы изучить</label>
+                    <label for="language">{{ $t('langCons')}}</label>
 
 
                     <md-select v-model="form.language" name="language" id="language" :disabled="sending"
-                        placeholder="Выберите нужный язык">
+                        :placeholder="$t('langConsChoise')">
 
                         <md-option value="EN" name="EN" id="EN">
-                            Английский
+                            {{ $t('en')}}
                         </md-option>
                         <md-option value="FR" name="FR" id="FR">
-                            Французский
+                            {{ $t('fr')}}
                         </md-option>
 
                         <md-option value="RUS" name="RUS" id="RUS">
-                            Русский
+                            {{ $t('rus')}}
                         </md-option>
 
                     </md-select>
-                    <span class="md-error" v-if="!$v.form.language.required">Обязательное поле</span>
+                    <span class="md-error" v-if="!$v.form.language.required">{{ $t('required')}}</span>
                 </md-field>
- 
+
                 <md-field>
-                    <label for="comment">Комментарий </label>
+                    <label for="comment">{{ $t('comment')}} </label>
                     <md-textarea name="comment" id="comment" v-model="form.comment" :disabled="sending" />
                 </md-field>
 
-
-                <!-- <md-field>
-            
-            <md-input type="text" name="event" id="event" v-model="form.event" :value="content.id"
-              :disabled="sending" />
-           
-          </md-field> -->
             </md-card-content>
 
             <md-progress-bar md-mode="indeterminate" v-if="sending" />
 
             <md-card-actions>
-                <md-button type="submit" class="md-primary" :disabled="sending">Записаться</md-button>
+                <md-button type="submit" class="md-primary" :disabled="sending">{{ $t('recording')}}
+                </md-button>
             </md-card-actions>
         </md-card>
-        <!-- 
-      событие {{event}}
-      Событие формы {{form.event}} -->
 
-        <!-- <md-snackbar :md-active.sync="userSaved">Ваша заявка успешно принята! Наш менеджер свяжется с вами по указанному
-        адресу: {{ email }}</md-snackbar> -->
+
+        <md-snackbar :md-active.sync="userSaved" :md-position="position" :md-duration="isInfinity ? Infinity : duration"
+            md-persistent>
+            {{ $t('manager')}} {{ form.email }}
+            <md-button class="md-primary" @click="userSaved = false">{{ $t('close')}}</md-button>
+        </md-snackbar>
     </form>
 
 </template>
@@ -141,7 +136,10 @@ export default {
                 {name: 'FR', value: 'FR'},
                 { name: 'RUS', value: 'RUS' },
             ],
-            selected: ''
+            selected: '',
+            position: 'center',
+            duration: 4000,
+            isInfinity: false
 
         }
     },
@@ -193,19 +191,33 @@ export default {
 
         saveUser() {
             this.sending = true
+            this.userSaved = true
+            
+            
+           
+            
 
             this.$api.sendConsultation(this.form).finally(() => {
+                window.setTimeout(() => {
+                    this.lastUser = `${this.form.email}`;
+                    this.userSaved = true;
+                    this.sending = false;
+                    this.clearForm();
+                    this.$emit('sendSubscribeSuccess')
+                    this.$mail.send({
+                        from: 'shabbaykina99@gmail.com',
+                        subject: 'Incredible',
+                        text: 'This is an incredible test message',
+                    })
+                }, 1500);
 
-                this.lastUser = `${this.form.name}`
-                this.userSaved = true
-                this.sending = false
+                // this.lastUser = `${this.form.name}`
+                
+                // this.sending = false
+               
                 // this.clearForm()
-                this.$emit('sendSubscribeSuccess')
-                this.$mail.send({
-                    from: 'shabbaykina99@gmail.com',
-                    subject: 'Incredible',
-                    text: 'This is an incredible test message',
-                })
+              
+                
             })
 
 
@@ -215,7 +227,9 @@ export default {
             this.$v.$touch()
 
             if (!this.$v.$invalid) {
+                
                 this.saveUser()
+                
             }
         }
     }
