@@ -137,7 +137,11 @@ export default {
     saveUser () {
       this.sending = true
       this.userSaved = true
-
+      this.$mail.send({
+        from: 'shabbaykina99@gmail.com',
+        subject: 'Incredible',
+        text: 'This is an incredible test message',
+      })
       this.$api.sendSubscribe(this.form).finally(() => {
 
         window.setTimeout(() => {
@@ -146,11 +150,7 @@ export default {
           this.sending = false;
           this.clearForm();
           this.$emit('sendSubscribeSuccess')
-          this.$mail.send({
-            from: 'shabbaykina99@gmail.com',
-            subject: 'Incredible',
-            text: 'This is an incredible test message',
-          })
+          
         }, 1500);
       })
       

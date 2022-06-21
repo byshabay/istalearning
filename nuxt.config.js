@@ -224,7 +224,7 @@ export default {
           "excursions": "Excursions",
           "parents": "Club des parents",
           "lang": "Clubs linguistiques",
-          "about": "À propos de nous",
+          "about": "De nous",
           "blog": "Blog",
           "contact": "Contacts",
           "signIn": "Connexion",
