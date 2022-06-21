@@ -41,13 +41,13 @@
       </md-drawer> -->
 
       <md-content class="events-screen__wrapper">
-        <EventCard @showSubscribeDialog="showSubscribeDialog = true" v-for="(eventContent, index) in events"
-          :key="index" :content="eventContent" />
+        <EventCard @showSubscribeDialog="showSubscribe" v-for="(eventContent, index) in events" :key="index"
+          :content="eventContent" />
       </md-content>
 
     </div>
     <md-dialog :md-active.sync="showSubscribeDialog">
-      <SubscribeFormMain @sendSubscribeSuccess="showSubscribeDialog = false" />
+      <SubscribeFormMain @sendSubscribeSuccess="showSubscribeDialog = false" :content="currentEvent" />
     </md-dialog>
 
 
@@ -74,11 +74,18 @@ export default {
       menuVisible: false,
       metaContent: [],
       selectedFilters: [],
-      arrFilter: ''
+      arrFilter: '',
+      currentEvent: null 
     };
   },
 
   methods: {
+    showSubscribe(data) {
+      // this.showSubscribeDialog(true)
+      this.showSubscribeDialog = true
+      this.currentEvent = data.content
+      console.log(this.currentEvent)
+    },
     setFilter(data) {
       
       this.selectedFilters = data.filters
