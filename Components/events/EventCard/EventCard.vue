@@ -8,8 +8,8 @@
       <md-card-area>
         <md-card-header>
           <div class="event-wrap">
-            <span class="md-title"> {{ content.title }} </span> <br>
-            <span class="md-subhead">{{ content.short_description }}</span>
+            <nuxt-link :to="`/event/${content.id}`"> <span class="md-title"> {{ content.title }} </span></nuxt-link>
+            <!-- <span class="md-subhead">{{ content.short_description }}</span> -->
           </div>
 
           <span class="md-price"> {{ content.price }} ₽ </span>
